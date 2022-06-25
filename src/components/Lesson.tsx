@@ -1,6 +1,6 @@
+import { format, isPast } from "date-fns";
 import { CheckCircle, Lock } from "phosphor-react";
 import { Link, useParams } from "react-router-dom";
-import { format, isPast } from "date-fns";
 
 import classNames from "classnames";
 import ptBR from "date-fns/locale/pt-BR";
@@ -25,10 +25,6 @@ export function Lesson(props: LessonProps) {
   );
 
   const isActiveLesson = slug === props.slug;
-
-  console.log("isActiveLesson", isActiveLesson);
-  console.log("slug", slug);
-  console.log("props.slug", props.slug);
 
   return (
     <Link to={`/event/lesson/${props.slug}`} className="group">
