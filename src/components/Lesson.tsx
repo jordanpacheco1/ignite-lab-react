@@ -1,6 +1,6 @@
-import { format, isPast } from "date-fns";
 import { CheckCircle, Lock } from "phosphor-react";
 import { Link, useParams } from "react-router-dom";
+import { format, isPast } from "date-fns";
 
 import classNames from "classnames";
 import ptBR from "date-fns/locale/pt-BR";
@@ -27,7 +27,12 @@ export function Lesson(props: LessonProps) {
   const isActiveLesson = slug === props.slug;
 
   return (
-    <Link to={`/event/lesson/${props.slug}`} className="group">
+    <Link
+      to={`${isLessonAvailable ? `/event/lesson/${props.slug}` : ""}`}
+      className={`group ${
+        isLessonAvailable ? "" : "opacity-40 pointer-events-none"
+      } select-none`}
+    >
       <span className="text-gray-300 first-letter:uppercase block">
         {availableDateFormatted}
       </span>
