@@ -1,5 +1,3 @@
-import "@vime/core/themes/default.css";
-
 import {
   CaretRight,
   DiscordLogo,
@@ -7,8 +5,8 @@ import {
   Image,
   Lightning,
 } from "phosphor-react";
-import { DefaultUi, Player, Youtube } from "@vime/react";
 
+import Youtube from "react-youtube";
 import { useGetLessonBySlugQuery } from "../graphql/generated";
 
 interface VideoProps {
@@ -30,10 +28,10 @@ export function Video(props: VideoProps) {
     <div className="flex-1">
       <div className="bg-black flex justify-center">
         <div className="h-full w-full max-w-[1100px] max-h-[60vh] aspect-video">
-          <Player>
-            <Youtube videoId={data.lesson.videoId} />
-            <DefaultUi />
-          </Player>
+          <Youtube
+            iframeClassName="h-full w-full max-w-[1100px] max-h-[60vh] aspect-video"
+            videoId={data.lesson.videoId}
+          />
         </div>
       </div>
 
